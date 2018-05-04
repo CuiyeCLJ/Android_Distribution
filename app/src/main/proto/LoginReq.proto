@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+option java_package = "com.liongjfuan.android_distribution.bean";
+package bean;
+
+message LoginReq {
+    int64 telephone = 1;    // 电话号码
+    string password = 2;    // 密码
+    string os = 3;  // os表示是在ios上使用还是在android上使用，os=ios或os=android
+}

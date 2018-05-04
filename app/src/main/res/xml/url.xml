@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<url>
+    <Node
+        Key="login"
+        Expires="0"
+        NetType="get"
+        Url="http://120.78.142.93:80/login"/>
+
+    <Node
+        Key="register"
+        Expires="0"
+        NetType="post"
+        Url="http://120.78.142.93:80/register"/>
+
+    <Node
+        Key="server_conf"
+        Expires="1000"
+        NetType="get"
+        Url="http://120.78.142.93:81/server_conf" />
+
+    <Node
+        Key="nearby_loc"
+        Expires="0"
+        NetType="get"
+        Url="http://120.78.142.93:82/shop_location" />
+
+    <Node
+        Key="shop_det"
+        Expires="0"
+        NetType="get"
+        Url="http://120.78.142.93:80/shop_detail" />
+
+</url>

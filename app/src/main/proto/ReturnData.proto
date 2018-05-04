@@ -1,0 +1,79 @@
+syntax = "proto3";
+
+option java_package = "com.liongjfuan.android_distribution.bean";
+package bean;
+
+// 用户信息
+message UserInfo {
+    int32 status=1;         // 表示用户现在的状态，一般是1或0，1表示在线，0表示不在线
+    int64 user_id=2;        // 用户的账号，现在用电话号码
+    string nick=3;          // 用户昵称
+    int32 sex=4;            // 用户性别，0表示男，1表示女
+    string portrait=5;      // 头像url
+    string signature=6;     // 个性签名
+}
+
+// 余额信息
+message BalanceInfo {
+    int64 fixed_money=1;        // 固定余额
+    int64 withdraw_money=2;     // 可提现余额
+}
+
+// 公益信息
+message WelfareInfo {
+    int64 welfare=1;            // 公益值
+    int64 rank=2;               // 公益排名
+}
+
+// 粉丝信息
+message FanInfo {
+    int64 fan_level_1=1;        // 一级粉丝的数量
+    int64 fan_level_2=2;        // 二级粉丝的数量
+}
+
+// 注册、登陆返回
+message LoginRsp {
+    UserInfo user_info = 1;         // 用户信息
+    BalanceInfo balance_info = 2;   // 余额信息
+    WelfareInfo welfare_info = 3;   // 公益信息
+    FanInfo fan_info = 4;           // 粉丝信息
+}
+
+//获取地理位置信息
+message ShopLocationReq {
+    string longitude = 1;       //经度
+    string latitude = 2;        //纬度
+}
+
+message ShopLocationRsp {
+    message ShopInfo {
+        int64 shop_id = 1;      // 店铺ID
+        string longitude = 2;   // 经度
+        string latitude = 3;    // 纬度
+        string name = 4;        // 店铺名称
+        string icon = 5;        // 店铺图片
+        string type = 6;        // 店铺图片
+    }
+    repeated ShopInfo shop_info = 1;
+}
+
+message ShopDetailReq {
+    int64 shop_id = 1;
+}
+
+message ShopDetailRsp {
+    message CommodityInfo {
+        int64 id = 1;                   // 商品ID
+        string name = 2;                // 商品名称
+        string icon_url = 3;            // 商品图片
+        string intro = 4;               // 商品介绍
+        string original_price = 5;      // 原价
+        string dis_price = 6;           // 优惠价
+        string discount = 7;            // 折扣
+        string return_count = 8;        // 返回金额
+    }
+    repeated string top_icon_urls = 1;          // 轮转首图
+    string intro = 2;                           // 简介
+    repeated CommodityInfo commodity_info = 3;  // 商品详情
+}
+
